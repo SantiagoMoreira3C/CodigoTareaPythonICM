@@ -1,0 +1,145 @@
+def ingresar():
+            
+            global nombres
+            global sueldos
+            global identificaciones 
+            global tamaño
+
+        
+            nombres = []
+            sueldos = []
+            identificaciones = []
+            
+         
+            # Definimos un tamaño para las listas
+            # Lo puedes cambiar si quieres
+            tamaño = int(input("ingrese el valor total de personas"))
+
+            # Leemos los datos y los agregamos a la lista
+            for i in range(tamaño):
+                print("Ingrese los datos de la persona", i + 1)
+                nombre = input("Nombre: ")
+                sueldo =  int(input("Sueldo: "))
+                identificación = input("Cargo:")
+
+                nombres.append(nombre)
+                sueldos.append(sueldo)
+                identificaciones.append(identificación)
+
+            # Ahora mostremos las listas
+            for i in range(tamaño):
+                print("Mostrando los datos de la persona", i + 1)
+
+                print("Nombre:", nombres[i])
+                print("Sueldo:", sueldos[i])
+                print("Cargo:", identificaciones[i]),
+                
+            
+            
+            
+            nummenu = int(input("INGRESE OPCION DE MENÚ \n 1.INGRESAR PERSONAS \n 2.CALCULAR PROMEDIO \n 3.ENCONTRAR MAX Y MIN SUELDO \n 4.MOSTRAR \n 5.SALIR \n INGRESE OPCION DEL MENU-->"))
+            switch_semana.get(nummenu, error)()
+
+def calcularprom():
+            global listProm
+            listProm = sum(sueldos)
+            print(f"Promedio sueldo de empleado -> {listProm/tamaño}")
+            
+            nummenu = int(input("INGRESE OPCION DE MENÚ \n 1.INGRESAR PERSONAS \n 2.CALCULAR PROMEDIO \n 3.ENCONTRAR MAX Y MIN SUELDO \n 4.MOSTRAR \n 5.SALIR \n INGRESE OPCION DEL MENU-->"))
+            switch_semana.get(nummenu, error)()
+            
+def calcularsueldomaxmin():
+            global maxSueldo
+            global minSueldo
+            maxSueldo = max(sueldos)
+            print(f"Valor máximo del sueldo -> {maxSueldo}")
+            indexpersonamaxsueldo= sueldos.index(maxSueldo)
+
+
+
+            print("---PERSONA CON MAXIMO SUELDO---")
+            print("Nombre:", nombres[indexpersonamaxsueldo])
+            print("Sueldo:", sueldos[indexpersonamaxsueldo])
+            print("Cargo:", identificaciones[indexpersonamaxsueldo])
+
+            minSueldo = min(sueldos)
+            print(f"Valor mínimo del sueldo -> {minSueldo}")
+            indexpersonaminsueldo= sueldos.index(minSueldo)
+
+            print("---PERSONA CON MINIMO SUELDO---")
+            print("Nombre:", nombres[indexpersonaminsueldo])
+            print("Sueldo:", sueldos[indexpersonaminsueldo])
+            print("Cargo:", identificaciones[indexpersonaminsueldo])
+            
+            nummenu = int(input("INGRESE OPCION DE MENÚ \n 1.INGRESAR PERSONAS \n 2.CALCULAR PROMEDIO \n 3.ENCONTRAR MAX Y MIN SUELDO \n 4.MOSTRAR \n 5.SALIR \n INGRESE OPCION DEL MENU-->"))
+            switch_semana.get(nummenu, error)()
+            
+def mostrar():
+            print("------LISTADO DE PERSONAS--------")
+            for i in range(tamaño):
+                   
+                    print("Mostrando los datos de la persona", i + 1)
+
+                    print("Nombre:", nombres[i])
+                    print("Sueldo:", sueldos[i])
+                    print("Cargo:", identificaciones[i])
+            print("---FIN LISTADO---")
+            print("------PROMEDIO SUELDO DE LAS PERSONAS--------")
+            print(f"Promedio sueldo de empleado -> {listProm/tamaño}")
+            
+            print("------MAXIMO Y MINIMO SUELDO DE LAS PERSONAS--------")
+            print(f"Valor máximo del sueldo -> {maxSueldo}")
+            indexpersonamaxsueldo= sueldos.index(maxSueldo)
+
+            print("---PERSONA CON MAXIMO SUELDO---")
+            print("Nombre:", nombres[indexpersonamaxsueldo])
+            print("Sueldo:", sueldos[indexpersonamaxsueldo])
+            print("Cargo:", identificaciones[indexpersonamaxsueldo])
+            
+            print(f"Valor mínimo del sueldo -> {minSueldo}")
+            indexpersonaminsueldo= sueldos.index(minSueldo)
+
+            print("---PERSONA CON MINIMO SUELDO---")
+            print("Nombre:", nombres[indexpersonaminsueldo])
+            print("Sueldo:", sueldos[indexpersonaminsueldo])
+            print("Cargo:", identificaciones[indexpersonaminsueldo])
+            
+            nummenu = int(input("INGRESE OPCION DE MENÚ \n 1.INGRESAR PERSONAS \n 2.CALCULAR PROMEDIO \n 3.ENCONTRAR MAX Y MIN SUELDO \n 4.MOSTRAR \n 5.SALIR \n INGRESE OPCION DEL MENU-->"))
+            switch_semana.get(nummenu, error)()
+
+            
+
+
+def salir():
+         
+            valor  = 1
+            while(valor >=1):
+                         print("Usted ha salido del menú")
+                         break
+        
+        
+
+def error():
+    print('LA OPCION DE MENU QUE DIGISTASTE NO ES VALIDA, INTENTE DE NUEVO')
+    nummenu = int(input("INGRESE OPCION DE MENÚ \n 1.INGRESAR PERSONAS \n 2.CALCULAR PROMEDIO \n 3.ENCONTRAR MAX Y MIN SUELDO \n 4.MOSTRAR \n 5.SALIR \n INGRESE OPCION DEL MENU-->"))
+    switch_semana.get(nummenu, error)()
+
+    
+
+
+switch_semana = {
+	1: ingresar,
+	2: calcularprom,
+	3: calcularsueldomaxmin,
+	4: mostrar,
+	5: salir
+}
+
+
+
+
+nummenu = int(input("INGRESE OPCION DE MENÚ \n 1.INGRESAR PERSONAS \n 2.CALCULAR PROMEDIO \n 3.ENCONTRAR MAX Y MIN SUELDO \n 4.MOSTRAR \n 5.SALIR \n INGRESE OPCION DEL MENU-->"))
+
+
+#tomamos la función asociada a la variable y la invocamos
+switch_semana.get(nummenu, error)()
