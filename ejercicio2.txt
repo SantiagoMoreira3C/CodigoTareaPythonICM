@@ -1,0 +1,27 @@
+una_lista=[3,4,5,8,9,12]
+
+def sumar(lista, i=0, suma=0):
+    if len(lista) == i:
+        return suma
+    elif lista[i] % 2 == 0:
+            suma += lista[i]
+    
+    return sumar(lista, i+1, suma)
+
+print("valores pares")
+print(sumar(una_lista))
+print("promedio valores pares")
+print(sumar(una_lista)/3)
+
+def sumarimpares(lista, i=0, suma=0):
+    if len(lista) == i:
+        return suma
+    elif lista[i] % 2 != 0:
+            suma += lista[i]
+    
+    return sumarimpares(lista, i+1, suma)
+
+print("valores impares")
+print(sumarimpares(una_lista))
+print("promedio valores impares")
+print(sumarimpares(una_lista)/3)
