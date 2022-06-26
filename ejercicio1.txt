@@ -1,0 +1,40 @@
+peso = float(input("Ingrese el peso de la persona(kg)"))
+altura = float(input("Ingrese la altura de la persona(m)"))
+
+
+
+valor  = peso / (altura*altura) 
+
+print("\n ----RESULTADO DEL ICM----")
+
+while(valor<=18.5):
+            print("bajo peso")
+            break
+        
+        
+while(valor>=18.5 and  valor<=24.9):
+            print("Normal")
+            break
+               
+while(valor>=25 and  valor<=29.9):
+            print("Sobrepeso")
+            break
+               
+while(valor>=30 and  valor<=34.9):
+            print("Obesidad Grado I")
+            break
+
+while(valor>=35 and  valor<=39.9):
+            print("Obesidad Grado II")
+            break
+
+               
+while(valor>=35 and valor<=39.9):
+            print("Obesidad Grado II")
+            break
+
+               
+while(valor>=40):
+            print("Obesidad Grado II")
+            break
+               
